@@ -27,7 +27,7 @@ def apply_filter(image, filter_type):
     return filtered_image
 
 #Load an image
-image_path= "Filter_Fun.jpg"
+image_path= "image_original/Filter_Fun.jpg"
 image= cv2.imread(image_path)
 
 if image is None:
@@ -43,6 +43,8 @@ else:
         filtered_image= apply_filter(image,filter_type)
         #Display the filtered image
         cv2.imshow("Filtered Image", filtered_image)
+        #Save the image
+        cv2.imwrite(f"image_output/{filter_type}.jpg", filtered_image)
         #Wait for user input
         key= cv2.waitKey(0) & 0xFF
         if key== ord("r"):
